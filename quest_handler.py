@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Quest Handler Module - Starter Code
 
-Name: [Your Name Here]
+Name: Aaron Williams
 
 AI Usage: [Document any AI assistance used]
 
@@ -43,6 +43,21 @@ def accept_quest(character, quest_id, quest_data_dict):
         QuestRequirementsNotMetError if prerequisite not completed
         QuestAlreadyCompletedError if quest already done
     """
+    if quest_id not  in quest_data_dict:
+        raise QuestNotFoundError ("Quest ID not found")
+    quest = quest_data_dict[quest_id]
+    prerequisite = quest.get("prerequisite", "NONE")
+    if character["Level"] < quest["Required_Level"]:
+        raise InsufficientLevelError ("Level is too low")
+    if prerequisite != "NONE" and prerequisite not in character["Completed_quests"]:
+        raise QuestRequirementsNotMetError ("Prerequisite not completed")
+    if quest_id in character["Completed_quests"]:
+        raise QuestAlreadyCompletedError ("Quest already done")
+    if quest_id in character["Active_quests"]:
+        raise QuestRequirementsNotMetError ("The quest is already active")
+    else:
+        character["Active_quests"].append(quest_id)
+        return True
     # TODO: Implement quest acceptance
     # Check quest exists
     # Check level requirement
