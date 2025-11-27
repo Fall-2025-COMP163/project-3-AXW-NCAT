@@ -125,7 +125,7 @@ def load_character(character_name, save_directory="data/save_games"):
     except:
         raise SaveFileCorruptedError
     example = file
-    if 
+    # if 
     # TODO: Implement load functionality
     # Check if file exists → CharacterNotFoundError
     # Try to read file → SaveFileCorruptedError
