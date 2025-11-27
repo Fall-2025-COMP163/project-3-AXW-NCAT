@@ -30,17 +30,17 @@ def create_character(name, character_class):
     Returns: Dictionary with character data including:
             - name, class, level, health, max_health, strength, magic
             - experience, gold, inventory, active_quests, completed_quests
-  #AI assisted me with swapping the key word print with return so that I cna use the dictionary later instead of just see it displayed.  
+  #AI assisted me with swapping the key word print with return so that I cna use the dictionary later instead of just see it displayed.
     Raises: InvalidCharacterClassError if class is not valid
     """
     if character_class == "Warrior":
-        return({"Name": {name}, "CLass": "Warrior", "Health": 100, "Max-Health": 120, "Strength": 15, "Magic": 5, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+        return({"name": {name}, "cLass": "Warrior", "health": 100, "max-health": 120, "strength": 15, "magic": 5, "level": 1, "experience": 0, "gold": 100, "inventory": [], "active_quests": [], "completed_quests": []})
     elif character_class == "Mage":
-        return({"Name": {name}, "CLass": "Mage", "Health": 80, "Max-Health": 95, "Strength": 8, "Magic": 20, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": [] })
+        return({"name": {name}, "cLass": "Mage", "health": 80, "max-health": 95, "strength": 8, "magic": 20, "level": 1, "experience": 0, "gold": 100, "inventory": [], "active_quests": [], "completed_quests": [] })
     elif character_class == "Rogue":
-        return({"Name": {name}, "CLass": "Rogue", "Health": 90, "Max-Health": 100, "Strength": 12, "Magic": 10, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+        return({"name": {name}, "cLass": "Rogue", "health": 90, "max-health": 100, "strength": 12, "magic": 10, "level": 1, "experience": 0, "gold": 100, "inventory": [], "active_quests": [], "completed_quests": []})
     elif character_class == "Clerc":
-        return({"Name": {name}, "CLass": "Clerc", "Health": 77, "Max-Health": 100, "Strength": 10, "Magic":15, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+        return({"name": {name}, "cLass": "Clerc", "health": 77, "max-health": 100, "strength": 10, "magic":15, "level": 1, "experience": 0, "gold": 100, "inventory": [], "active_quests": [], "completed_quests": []})
     else:
         raise InvalidCharacterClassError
     # TODO: Implement character creation
@@ -83,18 +83,18 @@ def save_character(character, save_directory="data/save_games"):
     """
     with open(save_directory, f"{character}_save.txt", "w") as file:
         file.write(
-            f"NAME: {character['Name']}\n"
-            f"CLASS: {character['Class']}\n"
-            f"LEVEL: {character['Level']}\n"
-            f"HEALTH: {character['Health']}\n"
-            f"MAX-HEALTH: {character['Max_health']}\n"
-            f"STRENGTH: {character['Strength']}\n"
-            f"MAGIC: {character['Magic']}\n"
-            f"EXPERIENCE: {character['Experience']}\n"
-            f"GOLD: {character['Gold']}\n"
-            f"INVENTORY: {character['Inventory']}\n"
-            f"ACTIVE_QUESTS: {character['Active_quests']}\n"
-            f"COMPLETED_QUESTS: {character['Completed_quests']}")
+            f"NAME: {character['name']}\n"
+            f"CLASS: {character['class']}\n"
+            f"LEVEL: {character['level']}\n"
+            f"HEALTH: {character["health']}\n"
+            f"MAX-HEALTH: {character['max_health']}\n"
+            f"STRENGTH: {character['strength']}\n"
+            f"MAGIC: {character['magic']}\n"
+            f"EXPERIENCE: {character['experience']}\n"
+            f"GOLD: {character['gold']}\n"
+            f"INVENTORY: {character['inventory']}\n"
+            f"ACTIVE_QUESTS: {character['active_quests']}\n"
+            f"COMPLETED_QUESTS: {character['completed_quests']}")
         return file
     # TODO: Implement save functionality
     # Create save_directory if it doesn't exist
