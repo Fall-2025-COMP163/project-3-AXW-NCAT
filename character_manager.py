@@ -84,7 +84,7 @@ def save_character(character, save_directory="data/save_games"):
     with open(save_directory, f"{character}_save.txt", "w") as file:
         file.write(
             f"NAME: {character['Name']}\n"
-            f"LEVEL: {character['Class']}\n"
+            f"CLASS: {character['Class']}\n"
             f"LEVEL: {character['Level']}\n"
             f"HEALTH: {character['Health']}\n"
             f"MAX-HEALTH: {character['Max_health']}\n"
