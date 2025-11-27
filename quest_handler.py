@@ -47,16 +47,16 @@ def accept_quest(character, quest_id, quest_data_dict):
         raise QuestNotFoundError ("Quest ID not found")
     quest = quest_data_dict[quest_id]
     prerequisite = quest.get("prerequisite", "NONE")
-    if character["Level"] < quest["Required_Level"]:
+    if character["level"] < quest["required_Level"]:
         raise InsufficientLevelError ("Level is too low")
-    if prerequisite != "NONE" and prerequisite not in character["Completed_quests"]:
+    if prerequisite != "NONE" and prerequisite not in character["completed_quests"]:
         raise QuestRequirementsNotMetError ("Prerequisite not completed")
-    if quest_id in character["Completed_quests"]:
+    if quest_id in character["completed_quests"]:
         raise QuestAlreadyCompletedError ("Quest already done")
-    if quest_id in character["Active_quests"]:
+    if quest_id in character["active_quests"]:
         raise QuestRequirementsNotMetError ("The quest is already active")
     else:
-        character["Active_quests"].append(quest_id)
+        character["active_quests"].append(quest_id)
         return True
     # TODO: Implement quest acceptance
     # Check quest exists
