@@ -30,17 +30,17 @@ def create_character(name, character_class):
     Returns: Dictionary with character data including:
             - name, class, level, health, max_health, strength, magic
             - experience, gold, inventory, active_quests, completed_quests
-    
+  #AI assisted me with swapping the key word print with return so that I cna use the dictionary later instead of just see it displayed.  
     Raises: InvalidCharacterClassError if class is not valid
     """
     if character_class == "Warrior":
-        print({"Name": {name}, "CLass": "Warior", "Health": 100, "Max-Health": 120, "Strength": 15, "Magic": 5, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+        return({"Name": {name}, "CLass": "Warior", "Health": 100, "Max-Health": 120, "Strength": 15, "Magic": 5, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
     elif character_class == "Mage":
-        print({"Name": {name}, "CLass": "Mage", "Health": 80, "Max-Health": 95, "Strength": 8, "Magic": 20, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": [] })
+        return({"Name": {name}, "CLass": "Mage", "Health": 80, "Max-Health": 95, "Strength": 8, "Magic": 20, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": [] })
     elif character_class == "Rogue":
-        print({"Name": {name}, "CLass": "Rogue", "Health": 90, "Max-Health": 100, "Strength": 12, "Magic": 10, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+        return({"Name": {name}, "CLass": "Rogue", "Health": 90, "Max-Health": 100, "Strength": 12, "Magic": 10, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
     elif character_class == "Clerc":
-        print({"Name": {name}, "CLass": "Cleric", "Health": 77, "Max-Health": 100, "Strength": 10, "Magic":15, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+        return({"Name": {name}, "CLass": "Cleric", "Health": 77, "Max-Health": 100, "Strength": 10, "Magic":15, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
     else:
         raise InvalidCharacterClassError
     # TODO: Implement character creation
