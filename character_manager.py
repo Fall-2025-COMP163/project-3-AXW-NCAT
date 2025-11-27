@@ -86,7 +86,7 @@ def save_character(character, save_directory="data/save_games"):
             f"NAME: {character['name']}\n"
             f"CLASS: {character['class']}\n"
             f"LEVEL: {character['level']}\n"
-            f"HEALTH: {character["health']}\n"
+            f"HEALTH: {character["health"]}\n"
             f"MAX-HEALTH: {character['max_health']}\n"
             f"STRENGTH: {character['strength']}\n"
             f"MAGIC: {character['magic']}\n"
