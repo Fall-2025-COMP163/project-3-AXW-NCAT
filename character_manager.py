@@ -2,8 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Character Manager Module - Starter Code
 
-Name: [Your Name Here]
-
+Name: Aaron Williams
 AI Usage: [Document any AI assistance used]
 
 This module handles character creation, loading, and saving.
@@ -34,6 +33,16 @@ def create_character(name, character_class):
     
     Raises: InvalidCharacterClassError if class is not valid
     """
+    if character_class == "Warrior":
+        print({"Name": {name}, "CLass": "Warior", "Health": 100, "Max-Health": 120, "Strength": 15, "Magic": 5, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+    elif character_class == "Mage":
+        print({"Name": {name}, "CLass": "Mage", "Health": 80, "Max-Health": 95, "Strength": 8, "Magic": 20, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": [] })
+    elif character_class == "Rogue":
+        print({"Name": {name}, "CLass": "Rogue", "Health": 90, "Max-Health": 100, "Strength": 12, "Magic": 10, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+    elif character_class == "Clerc":
+        print({"Name": {name}, "CLass": "Cleric", "Health": 77, "Max-Health": 100, "Strength": 10, "Magic":15, "Level": 1, "Experience": 0, "Gold": 100, "Inventory": [], "Active_quests": [], "Completed_quests": []})
+    else:
+        raise InvalidCharacterClassError
     # TODO: Implement character creation
     # Validate character_class first
     # Example base stats:
@@ -72,6 +81,21 @@ def save_character(character, save_directory="data/save_games"):
     Returns: True if successful
     Raises: PermissionError, IOError (let them propagate or handle)
     """
+     with open(save_directory, f"{character}_save.txt", "w") as file:
+        file.write(
+            f"NAME: {character['Name']}\n"
+            f"LEVEL: {character['Class']}\n"
+            f"LEVEL: {character['Level']}\n"
+            f"HEALTH: {character['Health']}\n"
+            f"MAX-HEALTH: {character['Max_health']}\n"
+            f"STRENGTH: {character['Strength']}\n"
+            f"MAGIC: {character['Magic']}\n"
+            f"EXPERIENCE: {character['Experience']}\n"
+            f"GOLD: {character['Gold']}\n"
+            f"INVENTORY: {character['Inventory']}\n"
+            f"ACTIVE_QUESTS: {character['Active_quests']}\n"
+            f"COMPLETED_QUESTS: {character['Completed_quests']}")
+        return file
     # TODO: Implement save functionality
     # Create save_directory if it doesn't exist
     # Handle any file I/O errors appropriately
