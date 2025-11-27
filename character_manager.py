@@ -173,6 +173,15 @@ def gain_experience(character, xp_amount):
     
     Raises: CharacterDeadError if character health is 0
     """
+    if character["health"] <= 0:
+        raise  CharacterDeadError("Character is dead")
+    current_level = character["level"]
+    level_up_xp = current_level * 100
+    current_level += 1
+    character["max_health"] + 10
+    character["strentgh"] + 7
+    character["magic"] + 4
+    character["health"] = character["max_health"]
     # TODO: Implement experience gain and leveling
     # Check if character is dead first
     # Add experience
@@ -215,6 +224,10 @@ def is_character_dead(character):
     
     Returns: True if dead, False if alive
     """
+    if character["health"] <= 0:
+        return(True)
+    else:
+        return(False)
     # TODO: Implement death check
     pass
 
