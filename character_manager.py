@@ -116,6 +116,16 @@ def load_character(character_name, save_directory="data/save_games"):
         SaveFileCorruptedError if file exists but can't be read
         InvalidSaveDataError if data format is wrong
     """
+    if os.path.isfile(save_directory) == False:
+        raise CharacterNotFoundError
+    try:
+        with open(save_directory, f"data/save_games/{character_name}.txt") as file:
+            contents = file.readlines()
+            print(contents)
+    except:
+        raise SaveFileCorruptedError
+    example = file
+    if 
     # TODO: Implement load functionality
     # Check if file exists → CharacterNotFoundError
     # Try to read file → SaveFileCorruptedError
