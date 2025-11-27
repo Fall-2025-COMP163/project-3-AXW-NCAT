@@ -81,7 +81,7 @@ def save_character(character, save_directory="data/save_games"):
     Returns: True if successful
     Raises: PermissionError, IOError (let them propagate or handle)
     """
-     with open(save_directory, f"{character}_save.txt", "w") as file:
+    with open(save_directory, f"{character}_save.txt", "w") as file:
         file.write(
             f"NAME: {character['Name']}\n"
             f"LEVEL: {character['Class']}\n"
