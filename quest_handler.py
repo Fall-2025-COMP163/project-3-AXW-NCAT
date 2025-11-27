@@ -47,7 +47,7 @@ def accept_quest(character, quest_id, quest_data_dict):
         raise QuestNotFoundError ("Quest ID not found")
     quest = quest_data_dict[quest_id]
     prerequisite = quest.get("prerequisite", "NONE")
-    if character['Level'] < quest["Required_Level"]:
+    if {character["Level"]} < quest["Required_Level"]:
         raise InsufficientLevelError ("Level is too low")
     if prerequisite != "NONE" and prerequisite not in character["Completed_quests"]:
         raise QuestRequirementsNotMetError ("Prerequisite not completed")
