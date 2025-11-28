@@ -85,7 +85,7 @@ def complete_quest(character, quest_id, quest_data_dict):
         QuestNotFoundError if quest_id not in quest_data_dict
         QuestNotActiveError if quest not in active_quests
     """
-    if quest_id not in character["active_quest"]:
+    if quest_id not in character["active_quests"]:
         raise QuestNotActiveError ("Quest is not active. Must activate quest.")
     if quest_id not in quest_data_dict:
         raise QuestNotFoundError ("Unknown quest. Please choose another one")
