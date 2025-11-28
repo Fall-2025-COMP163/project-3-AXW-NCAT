@@ -85,6 +85,12 @@ def complete_quest(character, quest_id, quest_data_dict):
         QuestNotFoundError if quest_id not in quest_data_dict
         QuestNotActiveError if quest not in active_quests
     """
+    if quest_id not in character["active_quest"]:
+        raise QuestNotActiveError ("Quest is not active. Must activate quest.")
+    if quest_id not in quest_data_dict:
+        raise QuestNotFoundError ("Unknown quest. Please choose another one")
+    else:
+        return ({"Reward XP": quest_data_dict["REWARD_XP"], "Gold": quest_data_dict["REWARD_GOLD"]})
     # TODO: Implement quest completion
     # Check quest exists
     # Check quest is active
@@ -101,6 +107,12 @@ def abandon_quest(character, quest_id):
     Returns: True if abandoned
     Raises: QuestNotActiveError if quest not active
     """
+    abandon = []
+    if quest_id in character["active_quests"]:
+        abandon.append(quest_id)
+        return True
+    else:
+        raise QuestNotActiveError ("Quest is not active")
     # TODO: Implement quest abandonment
     pass
 
