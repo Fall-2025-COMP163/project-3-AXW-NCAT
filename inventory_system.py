@@ -188,7 +188,7 @@ def unequip_weapon(character):
     Returns: Item ID that was unequipped, or None if no weapon equipped
     Raises: InventoryFullError if inventory is full
     """
-    if character["inventory"] > MAX_INVENTORY_SIZE:
+    if len(character["inventory"]) > MAX_INVENTORY_SIZE:
         raise InventoryFullError ("Inventory is at max compacity")
     # TODO: Implement weapon unequipping
     # Check if weapon is equipped
@@ -204,7 +204,7 @@ def unequip_armor(character):
     Returns: Item ID that was unequipped, or None if no armor equipped
     Raises: InventoryFullError if inventory is full
     """
-    if character["inventory"] > MAX_INVENTORY_SIZE:
+    if len(character["inventory"]) > MAX_INVENTORY_SIZE:
         raise InventoryFullError ("Inventory is at max compacity")
     # TODO: Implement armor unequipping
     pass
@@ -227,7 +227,7 @@ def purchase_item(character, item_id, item_data):
         InsufficientResourcesError if not enough gold
         InventoryFullError if inventory is full
     """
-    if character["inventory"] > MAX_INVENTORY_SIZE:
+    if len(character["inventory"]) > MAX_INVENTORY_SIZE:
         raise InventoryFullError ("Inventory is at max compacity")
     # TODO: Implement purchasing
     # Check if character has enough gold
