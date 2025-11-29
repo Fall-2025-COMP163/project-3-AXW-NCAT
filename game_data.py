@@ -150,7 +150,7 @@ def parse_quest_block(lines):
     if len(lines) < 7:
         raise InvalidDataFormatError ("Parsing failed")
     try:
-        if lines[1].strip.isdigit() = False:
+        if lines[1].strip.isdigit() == False:
             raise InvalidDataFormatError ("Parsing failed")
         return {"QUEST_ID": lines[0].strip(), 
             "REQUIRED_LEVEL": lines[1].strip(), 
