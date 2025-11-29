@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Inventory System Module - Starter Code
 
-Name: [Your Name Here]
+Name: Aaron Williams
 
 AI Usage: [Document any AI assistance used]
 
@@ -34,10 +34,13 @@ def add_item_to_inventory(character, item_id):
     Returns: True if added successfully
     Raises: InventoryFullError if inventory is at max capacity
     """
+    if character["inventory"] > MAX_INVENTORY_SIZE:
+        raise InventoryFullError ("Inventory is at max compacity")
+    else:
+        character["inventory"].append(item_id)
     # TODO: Implement adding items
     # Check if inventory is full (>= MAX_INVENTORY_SIZE)
     # Add item_id to character['inventory'] list
-    pass
 
 def remove_item_from_inventory(character, item_id):
     """
@@ -116,6 +119,8 @@ def use_item(character, item_id, item_data):
         ItemNotFoundError if item not in inventory
         InvalidItemTypeError if item type is not 'consumable'
     """
+    if item_id not in character["inventory"]:
+        raise ItemNotFoundError ("Item is not in inventory")
     # TODO: Implement item usage
     # Check if character has the item
     # Check if item type is 'consumable'
