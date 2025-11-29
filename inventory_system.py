@@ -244,9 +244,10 @@ def purchase_item(character, item_id, item_data):
         InsufficientResourcesError if not enough gold
         InventoryFullError if inventory is full
     """  
-    if character["gold"] <= item_data["cost"]:
+    # AI helped me with my logic here
+    if character["gold"] < item_data["cost"]:
         raise InsufficientResourcesError ("Not enough gold") 
-    if len(character["inventory"]) > MAX_INVENTORY_SIZE:
+    if len(character["inventory"]) >= MAX_INVENTORY_SIZE:
         raise InventoryFullError ("Inventory is at max compacity")
 
     # TODO: Implement purchasing
