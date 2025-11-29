@@ -53,6 +53,13 @@ def remove_item_from_inventory(character, item_id):
     Returns: True if removed successfully
     Raises: ItemNotFoundError if item not in inventory
     """
+    removed_items = []
+    if item_id not in character["inventory"]:
+        raise ItemNotFoundError ("Item not in inventory")
+    else:
+        removed_items.append(itme_id)
+        return removed_items
+        
     # TODO: Implement item removal
     # Check if item exists in inventory
     # Remove item from list
@@ -121,6 +128,8 @@ def use_item(character, item_id, item_data):
     """
     if item_id not in character["inventory"]:
         raise ItemNotFoundError ("Item is not in inventory")
+    if item_data["type"] is not "consumable":
+        raise InvalidItemTypeError ("Item type is not consumable")
     # TODO: Implement item usage
     # Check if character has the item
     # Check if item type is 'consumable'
@@ -149,6 +158,10 @@ def equip_weapon(character, item_id, item_data):
         ItemNotFoundError if item not in inventory
         InvalidItemTypeError if item type is not 'weapon'
     """
+    if item_id not in character["inventory"]:
+        raise ItemNotFoundError ("Item not in inventory")
+    if item_data["type"] != "consumable":
+        raise InvalidItemTypeError ("Item is not consumable")
     # TODO: Implement weapon equipping
     # Check item exists and is type 'weapon'
     # Handle unequipping current weapon if exists
@@ -177,9 +190,13 @@ def equip_armor(character, item_id, item_data):
         ItemNotFoundError if item not in inventory
         InvalidItemTypeError if item type is not 'armor'
     """
+    if item_id not in character["inventory"]:
+        raise ItemNotFoundError ("Item not in inventory")
+    if item_data["type"] != "consumable":
+        raise InvalidItemTypeError ("Item is not consumable")
     # TODO: Implement armor equipping
     # Similar to equip_weapon but for armor
-    pass
+   
 
 def unequip_weapon(character):
     """
@@ -212,7 +229,7 @@ def unequip_armor(character):
 # ============================================================================
 # SHOP SYSTEM
 # ============================================================================
-
+# AI helped me with which dictionary to use for the item cost
 def purchase_item(character, item_id, item_data):
     """
     Purchase an item from a shop
@@ -226,9 +243,12 @@ def purchase_item(character, item_id, item_data):
     Raises:
         InsufficientResourcesError if not enough gold
         InventoryFullError if inventory is full
-    """
+    """  
+    if character["gold"] <= item_data["cost"]:
+        raise InsufficientResourcesError ("Not enough gold") 
     if len(character["inventory"]) > MAX_INVENTORY_SIZE:
         raise InventoryFullError ("Inventory is at max compacity")
+
     # TODO: Implement purchasing
     # Check if character has enough gold
     # Check if inventory has space
