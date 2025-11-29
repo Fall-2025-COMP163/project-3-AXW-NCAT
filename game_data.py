@@ -157,13 +157,13 @@ def parse_quest_block(lines):
         if lines[6].strip().isdigit() == False:
             raise InvalidDataFormatError ("Parsing failed")
         return {"QUEST_ID": lines[0].strip(), 
-            "REQUIRED_LEVEL": lines[1].strip(), 
+            "REQUIRED_LEVEL": int(lines[1].strip()), 
             "PREREQUISITE": lines[2].strip(), 
             "DESCRIPTION": lines[3].strip(),
             "TITLE": lines[4].strip(), 
-            "REWARD_GOLD": lines[5].strip(), 
-            "REWARD_XP": lines[6].strip()}
-    except (IndexError, AttributeError, ValueErrore):
+            "REWARD_GOLD": int(lines[5].strip()), 
+            "REWARD_XP": int(lines[6].strip())}
+    except (IndexError, AttributeError, ValueError):
         raise InvalidDataFormatError ("Parsing failed")
     
     # TODO: Implement parsing logic
