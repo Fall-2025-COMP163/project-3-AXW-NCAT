@@ -150,13 +150,13 @@ def parse_quest_block(lines):
     try:
         with open("data/quests.txt", "r") as file:
             specs = file.readlines()
-    lines_dict = {"QUEST_ID": lines["QUEST_ID"], 
-    "REQUIRED_LEVEL": lines["REQUIRED_LEVEL"], 
-    "PREREQUISITE": lines["PREREQUISITE"], 
-    "DESCRIPTION": lines["DESCRIPTION"],
-    "TITLE": lines["TITLE"], 
-    "REWARD_GOLD": lines["REWARD_GOLD"], 
-    "REWARD_XP": lines["REWARD_XP"] }
+        lines_dict = {"QUEST_ID": lines["QUEST_ID"], 
+        "REQUIRED_LEVEL": lines["REQUIRED_LEVEL"], 
+        "PREREQUISITE": lines["PREREQUISITE"], 
+        "DESCRIPTION": lines["DESCRIPTION"],
+        "TITLE": lines["TITLE"], 
+        "REWARD_GOLD": lines["REWARD_GOLD"], 
+        "REWARD_XP": lines["REWARD_XP"] }
     except KeyError:
         raise InvalidDataFormatError ("Parsing faild")
     # TODO: Implement parsing logic
@@ -178,14 +178,14 @@ def parse_item_block(lines):
      try:
         with open("data/items.txt", "r") as file:
             specs = file.readlines()
-    lines_dict = {"QUEST_ID": lines["QUEST_ID"], 
-    "REQUIRED_LEVEL": lines["REQUIRED_LEVEL"], 
-    "PREREQUISITE": lines["PREREQUISITE"], 
-    "DESCRIPTION": lines["DESCRIPTION"],
-    "TITLE": lines["TITLE"], 
-    "REWARD_GOLD": lines["REWARD_GOLD"], 
-    "REWARD_XP": lines["REWARD_XP"] }
-    except KeyError:
+        lines_dict = {"QUEST_ID": lines["QUEST_ID"], 
+        "REQUIRED_LEVEL": lines["REQUIRED_LEVEL"], 
+        "PREREQUISITE": lines["PREREQUISITE"], 
+        "DESCRIPTION": lines["DESCRIPTION"],
+        "TITLE": lines["TITLE"], 
+        "REWARD_GOLD": lines["REWARD_GOLD"], 
+        "REWARD_XP": lines["REWARD_XP"] }
+     except KeyError:
         raise InvalidDataFormatError ("Parsing faild")
     # TODO: Implement parsing logic
     pass
