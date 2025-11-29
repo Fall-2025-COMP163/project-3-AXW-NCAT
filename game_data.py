@@ -68,7 +68,7 @@ def load_items(filename="data/items.txt"):
     Returns: Dictionary of items {item_id: item_data_dict}
     Raises: MissingDataFileError, InvalidDataFormatError, CorruptedDataError
     """
-     try:
+    try:
         with open(filename, "r") as file:
             specs = file.readlines()
             print(f"{specs}\n")
