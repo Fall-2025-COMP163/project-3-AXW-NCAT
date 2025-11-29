@@ -68,6 +68,16 @@ def load_items(filename="data/items.txt"):
     Returns: Dictionary of items {item_id: item_data_dict}
     Raises: MissingDataFileError, InvalidDataFormatError, CorruptedDataError
     """
+     try:
+        with open(filename, "r") as file:
+            specs = file.readlines()
+            print(f"{specs}\n")
+    except FileNotFoundError: 
+        raise MissingDataFileError ("Data is missing")
+    except InvalidDataFormatError:
+        raise InvalidDataFormatError ("Invalid data format")
+    except Exception:
+        raise CorruptedDataError ("Corrupted Data")
     # TODO: Implement this function
     # Must handle same exceptions as load_quests
     pass
