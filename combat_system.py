@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Combat System Module - Starter Code
 
-Name: [Your Name Here]
+Name: Aaron Williams
 
 AI Usage: [Document any AI assistance used]
 
@@ -32,6 +32,14 @@ def create_enemy(enemy_type):
     Returns: Enemy dictionary
     Raises: InvalidTargetError if enemy_type not recognized
     """
+    if enemy_type == "Ghost":
+        return ({"health": 50, "strenght":  8, "magic": 2, "xp_reward": 25, "gold_reward": 10})
+    elif enemy_type == "Vampire":
+        return ({"health": 80, "strenght":  12, "magic": 5, "xp_reward": 50, "gold_reward": 25})
+    elif enemy_type == "Dragon":
+        return ({"health": 200, "strenght":  25, "magic": 15, "xp_reward": 200, "gold_reward": 100})
+    else:
+        raise InvalidTargetError ("enemy type is not recognized")
     # TODO: Implement enemy creation
     # Return dictionary with: name, health, max_health, strength, magic, xp_reward, gold_reward
     pass
@@ -68,7 +76,11 @@ class SimpleBattle:
         # Store character and enemy
         # Set combat_active flag
         # Initialize turn counter
-        pass
+        self.turn_counter = 0
+        self.character = character
+        self.enemy = enemy
+        self.combat_active = True
+        self.turn_counter =+ 1
     
     def start_battle(self):
         """
@@ -96,6 +108,22 @@ class SimpleBattle:
         
         Raises: CombatNotActiveError if called outside of battle
         """
+        if self.combat_active == False:
+            raise CombatNotActiveError ("Combat isn't actice. You may not attack")
+        while True:
+            print("Choose a combat option:" \
+            "1 = Basic Attack" \
+            "2 = Special Ability (if available)" \
+            "3 = Try to run")
+            player_choice = int(input())
+            if player_choice == 1:
+                self.basic_attack()
+            elif player_choice == 2:
+                self.special_ability()
+            elif player_choice == 3:
+                self.try_to_run()
+            else:
+                player_choice = int(input("Please try again: "))
         # TODO: Implement player turn
         # Check combat is active
         # Display options
