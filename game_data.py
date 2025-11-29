@@ -148,7 +148,7 @@ def parse_quest_block(lines):
     Raises: InvalidDataFormatError if parsing fails
     """
     try:
-        return {"QUEST_ID": lines[0].sptrip(), 
+        return {"QUEST_ID": lines[0].strip(), 
         "REQUIRED_LEVEL": lines[1].strip(), 
         "PREREQUISITE": lines[2].strip(), 
         "DESCRIPTION": lines[3].strip(),
