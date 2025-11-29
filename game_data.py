@@ -81,7 +81,7 @@ def load_items(filename="data/items.txt"):
     # TODO: Implement this function
     # Must handle same exceptions as load_quests
     pass
-
+    # Ai helped me with the for loop for the keys list
 def validate_quest_data(quest_dict):
     """
     Validate that quest dictionary has all required fields
@@ -92,6 +92,10 @@ def validate_quest_data(quest_dict):
     Returns: True if valid
     Raises: InvalidDataFormatError if missing required fields
     """
+    keys = ["quest_id", "title", "description", "reward_xp", "reward_gold", "required_level", "prerequisite"]
+    for key in keys:
+        if keys not in quest_dict:
+            raise InvalidDataFormatError ("Missing required fields")
     # TODO: Implement validation
     # Check that all required keys exist
     # Check that numeric values are actually numbers
@@ -107,6 +111,14 @@ def validate_item_data(item_dict):
     Returns: True if valid
     Raises: InvalidDataFormatError if missing required fields or invalid type
     """
+    keys: ["item_id", "name", "type", "effect", "cost", "description"]
+    types: ["weapon", "armor", "consumable"]
+    for key in keys:
+         if keys not in item_dict:
+            raise InvalidDataFormatError ("Missing required fields")
+    for type in types:
+         if typs not in item_dict:
+            raise InvalidDataFormatError ("Missing required fields")
     # TODO: Implement validation
     pass
 
