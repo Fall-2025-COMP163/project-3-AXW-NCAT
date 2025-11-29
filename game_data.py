@@ -175,7 +175,7 @@ def parse_item_block(lines):
     Returns: Dictionary with item data
     Raises: InvalidDataFormatError if parsing fails
     """
-     try:
+    try:
         with open("data/items.txt", "r") as file:
             specs = file.readlines()
         lines_dict = {"QUEST_ID": lines["QUEST_ID"], 
