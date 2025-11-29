@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Game Data Module - Starter Code
 
-Name: [Your Name Here]
+Name: Aaron Williams
 
 AI Usage: [Document any AI assistance used]
 
@@ -19,7 +19,7 @@ from custom_exceptions import (
 # ============================================================================
 # DATA LOADING FUNCTIONS
 # ============================================================================
-
+#AI helped me with writing out the exception statements for this part of the program
 def load_quests(filename="data/quests.txt"):
     """
     Load quest data from file
@@ -36,6 +36,16 @@ def load_quests(filename="data/quests.txt"):
     Returns: Dictionary of quests {quest_id: quest_data_dict}
     Raises: MissingDataFileError, InvalidDataFormatError, CorruptedDataError
     """
+    try:
+        with open(filename, "r") as file:
+            specs = file.readlines()
+            print(f"{specs}\n")
+    except FileNotFoundError: 
+        raise MissingDataFileError ("Data is missing")
+    except InvalidDataFormatError:
+        raise InvalidDataFormatError ("Invalid data format")
+    except Exception:
+        raise CorruptedDataError ("Corrupted Data")
     # TODO: Implement this function
     # Must handle:
     # - FileNotFoundError → raise MissingDataFileError
