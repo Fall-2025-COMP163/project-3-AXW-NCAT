@@ -185,8 +185,8 @@ def parse_item_block(lines):
         "TITLE": lines["TITLE"], 
         "REWARD_GOLD": lines["REWARD_GOLD"], 
         "REWARD_XP": lines["REWARD_XP"] }
-     except KeyError:
-        raise InvalidDataFormatError ("Parsing faild")
+    except KeyError:
+         raise InvalidDataFormatError ("Parsing faild")
     # TODO: Implement parsing logic
     pass
 
