@@ -149,19 +149,18 @@ def parse_quest_block(lines):
     """
     if len(lines) < 7:
         raise InvalidDataFormatError ("Parsing failed")
-    try:
-        return {"QUEST_ID": lines[0].strip(), 
+    return {"QUEST_ID": lines[0].strip(), 
         "REQUIRED_LEVEL": lines[1].strip(), 
         "PREREQUISITE": lines[2].strip(), 
         "DESCRIPTION": lines[3].strip(),
         "TITLE": lines[4].strip(), 
         "REWARD_GOLD": lines[5].strip(), 
         "REWARD_XP": lines[6].strip()}
+    
     # TODO: Implement parsing logic
     # Split each line on ": " to get key-value pairs
     # Convert numeric strings to integers
     # Handle parsing errors gracefully
-    pass
 
 def parse_item_block(lines):
     """
