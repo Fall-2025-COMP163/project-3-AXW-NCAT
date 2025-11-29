@@ -148,15 +148,14 @@ def parse_quest_block(lines):
     Raises: InvalidDataFormatError if parsing fails
     """
     try:
-        return {}
-        {"QUEST_ID": lines[0].sptrip(), 
-        "REQUIRED_LEVEL": lines[1], 
-        "PREREQUISITE": lines[2], 
-        "DESCRIPTION": lines[3],
-        "TITLE": lines[4], 
-        "REWARD_GOLD": lines[5], 
-        "REWARD_XP": lines[6]}
-    except IndexError:
+        return {"QUEST_ID": lines[0].sptrip(), 
+        "REQUIRED_LEVEL": lines[1].strip(), 
+        "PREREQUISITE": lines[2].strip(), 
+        "DESCRIPTION": lines[3].strip(),
+        "TITLE": lines[4].strip(), 
+        "REWARD_GOLD": lines[5].strip(), 
+        "REWARD_XP": lines[6].strip()}
+    except Exception:
         raise InvalidDataFormatError ("Parsing failed")
     # TODO: Implement parsing logic
     # Split each line on ": " to get key-value pairs
