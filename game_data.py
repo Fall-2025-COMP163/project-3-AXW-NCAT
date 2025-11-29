@@ -147,6 +147,8 @@ def parse_quest_block(lines):
     Returns: Dictionary with quest data
     Raises: InvalidDataFormatError if parsing fails
     """
+    if len(lines) < 7:
+        raise InvalidDataFormatError ("Parsing failed")
     try:
         return {"QUEST_ID": lines[0].strip(), 
         "REQUIRED_LEVEL": lines[1].strip(), 
@@ -155,8 +157,6 @@ def parse_quest_block(lines):
         "TITLE": lines[4].strip(), 
         "REWARD_GOLD": lines[5].strip(), 
         "REWARD_XP": lines[6].strip()}
-    except Exception:
-        raise InvalidDataFormatError ("Parsing failed")
     # TODO: Implement parsing logic
     # Split each line on ": " to get key-value pairs
     # Convert numeric strings to integers
