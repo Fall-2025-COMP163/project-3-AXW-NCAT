@@ -34,7 +34,7 @@ def add_item_to_inventory(character, item_id):
     Returns: True if added successfully
     Raises: InventoryFullError if inventory is at max capacity
     """
-    if character["inventory"] > MAX_INVENTORY_SIZE:
+    if len(character["inventory"]) > MAX_INVENTORY_SIZE:
         raise InventoryFullError ("Inventory is at max compacity")
     else:
         character["inventory"].append(item_id)
