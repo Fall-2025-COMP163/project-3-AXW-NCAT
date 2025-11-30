@@ -41,6 +41,7 @@ def load_quests(filename="data/quests.txt"):
         with open(filename, "r") as file:
             specs = file.readlines()
             print(f"{specs}\n")
+            return parse_quest_block(specs)
     except FileNotFoundError: 
         raise MissingDataFileError ("Data is missing")
     except InvalidDataFormatError:
