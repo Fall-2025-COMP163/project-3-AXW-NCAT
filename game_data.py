@@ -137,7 +137,7 @@ def create_default_data_files():
 # HELPER FUNCTIONS
 # ============================================================================
 # AI helped me understand what parse meant here. AI helped me with the logic here
-def parse_quest_block(lines):
+def parse_quest_block(lines = "test_bad_data.txt"):
     """
     Parse a block of lines into a quest dictionary
     
