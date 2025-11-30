@@ -36,6 +36,7 @@ def load_quests(filename="data/quests.txt"):
     Returns: Dictionary of quests {quest_id: quest_data_dict}
     Raises: MissingDataFileError, InvalidDataFormatError, CorruptedDataError
     """
+    
     try:
         with open(filename, "r") as file:
             specs = file.readlines()
@@ -147,6 +148,7 @@ def parse_quest_block(lines):
     Returns: Dictionary with quest data
     Raises: InvalidDataFormatError if parsing fails
     """
+    
     if len(lines) < 7:
         raise InvalidDataFormatError ("Parsing failed")
     try:
