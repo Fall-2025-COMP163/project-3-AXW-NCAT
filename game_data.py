@@ -151,7 +151,7 @@ def parse_quest_block(lines):
         raise InvalidDataFormatError ("Parsing failed")
     try:
         if lines[1].strip().isdigit() == False:
-            raise InvalidDataFormatError ("Parsing failed")
+            raise InvalidDataFormatError ("Level must be a number")
         if lines[5].strip().isdigit() == False:
             raise InvalidDataFormatError ("Parsing failed")
         if lines[6].strip().isdigit() == False:
