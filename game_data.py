@@ -80,7 +80,6 @@ def load_items(filename="data/items.txt"):
         raise CorruptedDataError ("Corrupted Data")
     # TODO: Implement this function
     # Must handle same exceptions as load_quests
-    pass
     # Ai helped me with the for loop for the keys list
 def validate_quest_data(quest_dict):
     """
@@ -96,6 +95,7 @@ def validate_quest_data(quest_dict):
     for key in keys:
         if key not in quest_dict:
             raise InvalidDataFormatError ("Missing required fields")
+    return True
     # TODO: Implement validation
     # Check that all required keys exist
     # Check that numeric values are actually numbers
@@ -117,10 +117,10 @@ def validate_item_data(item_dict):
          if key not in item_dict:
             raise InvalidDataFormatError ("Missing required fields")
     for type in types:
-         if typ not in item_dict:
+         if type not in item_dict:
             raise InvalidDataFormatError ("Missing required fields")
+    return True
     # TODO: Implement validation
-    pass
 
 def create_default_data_files():
     """
@@ -137,7 +137,7 @@ def create_default_data_files():
 # HELPER FUNCTIONS
 # ============================================================================
 # AI helped me understand what parse meant here. AI helped me with the logic here
-def parse_quest_block(lines = "test_bad_data.txt"):
+def parse_quest_block(lines):
     """
     Parse a block of lines into a quest dictionary
     
