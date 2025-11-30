@@ -181,20 +181,20 @@ def parse_item_block(lines):
     Returns: Dictionary with item data
     Raises: InvalidDataFormatError if parsing fails
     """
+    if len(lines) < 5:
+        raise InvalidDataFormatError ("Parsing failed")
     try:
-        with open("data/items.txt", "r") as file:
-            specs = file.readlines()
-        lines_dict = {"QUEST_ID": lines["QUEST_ID"], 
-        "REQUIRED_LEVEL": lines["REQUIRED_LEVEL"], 
-        "PREREQUISITE": lines["PREREQUISITE"], 
-        "DESCRIPTION": lines["DESCRIPTION"],
-        "TITLE": lines["TITLE"], 
-        "REWARD_GOLD": lines["REWARD_GOLD"], 
-        "REWARD_XP": lines["REWARD_XP"] }
-    except KeyError:
-         raise InvalidDataFormatError ("Parsing faild")
+        if lines[4].strip().isdigit() == False:
+            raise InvalidDataFormatError ("Parsing failed")
+        return {"ITEM_ID": lines[0].strip(), 
+            "NAME": int(lines[1].strip()), 
+            "TYPE": lines[2].strip(), 
+            "EFFECT": lines[3].strip(),
+            "COST": lines[4].strip(),
+            "DESCRIPTION": lines[5].strip()}
+    except (IndexError, AttributeError, ValueError):
+        raise InvalidDataFormatError ("Parsing failed")
     # TODO: Implement parsing logic
-    pass
 
 # ============================================================================
 # TESTING
