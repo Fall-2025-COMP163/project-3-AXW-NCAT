@@ -62,7 +62,7 @@ def get_random_enemy_for_level(character_level):
 # ============================================================================
 # COMBAT SYSTEM
 # ============================================================================
-
+# AI helped me with the logic of the combat_active flag. Didn't understand it at first
 class SimpleBattle:
     """
     Simple turn-based combat system
@@ -96,7 +96,7 @@ class SimpleBattle:
         # Loop until someone dies
         # Award XP and gold if player wins
         pass
-    
+        #AI helped me create a choice loop
     def player_turn(self):
         """
         Handle player's turn
