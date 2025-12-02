@@ -1,2 +1,10 @@
-AI Usage:
-Exception Strategy:
+Module Architecture: For my module organization I organized my characters and thieir classes as recommended. 
+I created a dictionary for each character and I completed the save character function so that I could save the dictionary data in a file.
+
+AI Usage: AI helped me with alot of this project because this assignment was really confusing. 
+One example of AI assistance is when it helped me fix my comparison logic and dictionary syntax errors when I was working with the inventory systems py.
+
+Exception Strategy: When raising exceptions, I was creating outputs for common errors that could occure while one was playing my game. 
+For example, a common mistake is mispelling a word. If a user misspells a item ID, then an exception will be raised because that ID doesn't mathc the one in the item dictionary.
+
+How to play my game: I didn't finish my program completly, so my gameplay won't function as expected.
