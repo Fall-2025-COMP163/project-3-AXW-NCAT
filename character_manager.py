@@ -20,7 +20,7 @@ from custom_exceptions import (
 # ============================================================================
 # CHARACTER MANAGEMENT FUNCTIONS
 # ============================================================================
-
+#Ai helped me fix a sytax error
 def create_character(name, character_class):
     """
     Create a new character with stats based on class
@@ -57,7 +57,7 @@ def create_character(name, character_class):
     
     # Raise InvalidCharacterClassError if class not in valid list
     pass
-
+#AI helped me realize that this is similar code to project 1
 def save_character(character, save_directory="data/save_games"):
     """
     Save character to file
