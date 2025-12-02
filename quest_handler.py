@@ -20,7 +20,7 @@ from custom_exceptions import (
 # ============================================================================
 # QUEST MANAGEMENT
 # ============================================================================
-
+#AI helped me with this funciton(walked me though, formatting etc.
 def accept_quest(character, quest_id, quest_data_dict):
     """
     Accept a new quest
@@ -43,7 +43,7 @@ def accept_quest(character, quest_id, quest_data_dict):
         QuestRequirementsNotMetError if prerequisite not completed
         QuestAlreadyCompletedError if quest already done
     """
-    if quest_id not  in quest_data_dict:
+    if quest_id not in quest_data_dict:
         raise QuestNotFoundError ("Quest ID not found")
     quest = quest_data_dict[quest_id]
     prerequisite = quest.get("prerequisite", "NONE")
